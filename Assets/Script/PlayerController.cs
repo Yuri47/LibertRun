@@ -49,6 +49,15 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
+	void OnCollisionEnter2D(Collision2D coll) { //
+		if (coll.gameObject.tag == "enemie") {
+			 
+			Debug.Log ("morreu fdp");
+
+		}
+
+	}
+
 
  
 
