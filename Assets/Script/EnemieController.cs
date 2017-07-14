@@ -21,4 +21,5 @@ public class EnemieController : MonoBehaviour {
 		enemieBody.velocity = new Vector2 (velocidade, 0); 
 		
 	}
+
 }

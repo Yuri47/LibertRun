@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
 	public float forca;
 	private Rigidbody2D myBody;
 	public bool grounded = false;
+	public GameObject gameControl;
+	private GameController gameController;
 
 
 	 
@@ -16,11 +18,14 @@ public class PlayerController : MonoBehaviour {
 
 	void Awake () {
 		myBody = GetComponent<Rigidbody2D> ();
-
+		gameController = gameControl.GetComponent<GameController> ();
+		 
+		//player = FindObjectOfType(typeof(PlayerMovement)) as PlayerMovement;
 
 	}
 	// Use this for initialization
 	void Start () {
+		
 		
 	}
 	
@@ -53,8 +58,21 @@ public class PlayerController : MonoBehaviour {
 		if (coll.gameObject.tag == "enemie") {
 			 
 			Debug.Log ("morreu fdp");
+			 
+			gameController.Pause ();
+		 
+		}
+
+		if (coll.gameObject.tag == "gold") {
+
+			//Debug.Log ("pegou gold");
+			Destroy (coll.gameObject, 0);
+
+			gameController.pegouGold (10f);
 
 		}
+
+
 
 	}
 
